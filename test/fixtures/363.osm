@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="replicate_changesets.rb" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+  <changeset id="46622742" created_at="2017-03-06T12:36:46Z" closed_at="2017-03-06T12:36:50Z" open="false" num_changes="1" user="landfahrer" uid="1069176" min_lat="50.0851333" max_lat="50.0853243" min_lon="8.2347022" max_lon="8.2350024" comments_count="0">
+    <tag k="created_by" v="JOSM/1.5 (10526 de)"/>
+    <tag k="comment" v="correction self intersection OSMI"/>
+  </changeset>
+  <changeset id="46622743" created_at="2017-03-06T12:36:56Z" closed_at="2017-03-06T12:36:59Z" open="false" num_changes="82" user="ikovaltaras" uid="630853" min_lat="49.8327442" max_lat="49.8392366" min_lon="23.8886267" max_lon="23.9165664" comments_count="0">
+    <tag k="source" v="Bing"/>
+    <tag k="created_by" v="JOSM/1.5 (11639 uk)"/>
+    <tag k="comment" v="Added wood"/>
+  </changeset>
+</osm>
