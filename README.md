@@ -1,4 +1,4 @@
-# osm-adiff-watchbot
+# osm-adiff-service
 
 Listens to augmented diff files published to S3 by Overpass and minutely replication files from `osm-metronome`, and merges them together to create full representations of changesets. 
 

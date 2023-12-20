@@ -1,5 +1,5 @@
 {
-  "name": "osm-adiff-watchbot",
+  "name": "osm-adiff-service",
   "version": "1.2.0",
   "description": "Read adiff files from s3 and build complete changeset representations",
   "main": "index.js",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/mapbox/osm-adiff-watchbot"
+    "url": "https://github.com/OSMCha/osm-adiff-service"
   },
   "author": "Mapbox",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mapbox/osm-adiff-watchbot/issues"
+    "url": "https://github.com/OSMCha/osm-adiff-service/issues"
   },
-  "homepage": "https://github.com/mapbox/osm-adiff-watchbot",
+  "homepage": "https://github.com/OSMCha/osm-adiff-service",
   "dependencies": {
     "@mapbox/cloudfriend": "^4.0.0",
     "@mapbox/magic-cfn-resources": "^1.9.0",
