@@ -1,6 +1,6 @@
 # osm-adiff-service
 
-Listens to augmented diff files published to S3 by Overpass and minutely replication files from `osm-metronome`, and merges them together to create full representations of changesets. 
+This service is intended to create full representations of OpenStreetMap changesets. It needs to listen to minutely changeset replication files and query changeset data in overpass, so both datasets can be merged together.
 
 # Real OpenStreetMap Changesets
 
