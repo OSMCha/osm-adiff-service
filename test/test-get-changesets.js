@@ -1,18 +1,21 @@
 const test = require('tape');
-const getChangesets = require('../lib/get-changesets');
+const fs = require('fs');
+const { getChangesets } = require('../lib/get-changesets');
 const join = require('path').join;
 
-test('test get changeset processes changeset', function(assert) {
-    const filePath = join(__dirname, 'fixtures', '363.osm');
-    console.log(filePath);
-    process.env.OutputBucket = 'overpass-db-ap-northeast';
-    process.env.OutputPrefix = 'augmented-diffs';
-    process.env.AdiffBaseUrl = 'https://s3-ap-northeast-1.amazonaws.com/overpass-db-ap-northeast-1/augmented-diffs/';
-    getChangesets(filePath, function(err, changesets) {
-        if (err) {
-            console.log('error', err);
-        }
-        console.log('changesets', changesets);
-        assert.end();
-    });
+test('test get changeset processes changeset', async (assert) => {
+    const filePath = join(__dirname, 'fixtures', 'aug-diff-test.osm');
+    const data = fs.readFileSync(filePath);
+    const results = await getChangesets(data);
+    const changesets = [
+        '85063040',
+        '85063048',
+        '85063053',
+        '85063078',
+        '85063085',
+        '85063108',
+        '85063113',
+        '85063116'
+    ];
+    assert.deepEqual(Object.keys(results), changesets);
 });

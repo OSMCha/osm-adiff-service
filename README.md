@@ -110,6 +110,18 @@ Our primary tool for visualizing changesets has been [changeset-map](http://osml
 
 Augmented Diffs contains complete representations of changes in OSM for every minute. One can also query for a custom time range, and filter by bounding box or other attributes. These queries can be extremely slow, especially for large changesets, and were a major bottleneck in scaling up changeset reviewing processes.
 
+### How to run
+
+```
+const run  = require('./index');
+
+// To process this file https://planet.openstreetmap.org/replication/minute/006/012/443.osc.gz,
+// the value should be 6012443
+const minuteReplication = 6012443;
+
+run(minuteReplication);
+```
+
 ### How to fill a missing changeset
 
 To backfill a particular changeset
@@ -125,7 +137,13 @@ __Params__
 
 `padding`: <optional> The range of minutely replication files to look for the changeset id in. eg. `[239.osc.gz, (239+padding).osc.gz]`
 
+## Configuration
 
-### This sounds like quite a lot of duct-tape
+This library requires setting some environment variables, and the AWS credentials to upload the files to S3.
 
-It is. For now, this is going to improve our workflows, but while this in place we can continue working on Dynamosm.
+Environment Variable | Default value | Purpose
+---|---|---
+OsmchaAdminToken |  null | Enable posting the changeset Tag Changes to OSMCha
+OutputBucket | real-changesets | S3 Bucket that will store the real-changesets files
+OverpassPrimaryUrl | https://overpass.osmcha.org | Main overpass server
+OverpassSecondaryUrl | https://overpass-api.de | Fallback overpass server

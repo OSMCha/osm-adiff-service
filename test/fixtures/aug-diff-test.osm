@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osmChange version="0.6" generator="Osmosis 0.47.4">
+  <modify>
+    <node id="120817853" version="6" timestamp="2020-05-12T06:12:28Z" uid="8710057" user="CartoDog" changeset="85063078" lat="-45.1522204" lon="-73.6769128"/>
+    <node id="120851952" version="4" timestamp="2020-05-12T06:12:28Z" uid="8710057" user="CartoDog" changeset="85063078" lat="-45.142005" lon="-73.6779387"/>
+    <node id="120873484" version="5" timestamp="2020-05-12T06:12:28Z" uid="8710057" user="CartoDog" changeset="85063078" lat="-45.1521012" lon="-73.6780259"/>
+    <node id="148393651" version="6" timestamp="2020-05-12T06:12:28Z" uid="8710057" user="CartoDog" changeset="85063078" lat="-45.1184176" lon="-73.6858714"/>
+    <node id="148479535" version="5" timestamp="2020-05-12T06:12:28Z" uid="8710057" user="CartoDog" changeset="85063078" lat="-45.1516501" lon="-73.6741045"/>
+  </modify>
+  <delete>
+    <node id="149357154" version="5" timestamp="2020-05-12T06:12:57Z" uid="9018045" user="manikyal" changeset="85063108" lat="35.661143" lon="-78.4383475"/>
+    <node id="149357157" version="4" timestamp="2020-05-12T06:12:57Z" uid="9018045" user="manikyal" changeset="85063108" lat="35.6610341" lon="-78.4376016"/>
+  </delete>
+  <modify>
+    <node id="149357160" version="4" timestamp="2020-05-12T06:12:57Z" uid="9018045" user="manikyal" changeset="85063108" lat="35.66137" lon="-78.4372246"/>
+  </modify>
+  <delete>
+    <node id="234276883" version="3" timestamp="2020-05-12T06:12:08Z" uid="10240923" user="bachurev" changeset="85063048" lat="41.632881" lon="-88.689755"/>
+  </delete>
+  <modify>
+    <node id="234276886" version="3" timestamp="2020-05-12T06:12:08Z" uid="10240923" user="bachurev" changeset="85063048" lat="41.6329147" lon="-88.6895613"/>
+    <node id="352842129" version="4" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5117408" lon="-43.0312559">
+      <tag k="source" v="IBGE"/>
+    </node>
+    <node id="510810052" version="3" timestamp="2020-05-12T06:13:01Z" uid="10811209" user="Bornholm2" changeset="85063116" lat="-28.0617304" lon="24.835335"/>
+    <node id="510810056" version="2" timestamp="2020-05-12T06:13:01Z" uid="10811209" user="Bornholm2" changeset="85063116" lat="-28.0519695" lon="24.820434"/>
+    <node id="600026884" version="2" timestamp="2020-05-12T06:12:10Z" uid="385463" user="a_knz" changeset="85063053" lat="56.5340009" lon="47.9929953"/>
+  </modify>
+  <delete>
+    <node id="600026885" version="2" timestamp="2020-05-12T06:12:10Z" uid="385463" user="a_knz" changeset="85063053" lat="56.5342131" lon="47.9913813"/>
+  </delete>
+  <create>
+    <node id="7509515884" version="1" timestamp="2020-05-12T06:12:02Z" uid="10208964" user="vkanduku" changeset="85063040" lat="40.2663051" lon="-83.5183004"/>
+    <node id="7509532268" version="1" timestamp="2020-05-12T06:13:00Z" uid="9268825" user="sushredd" changeset="85063113" lat="41.3296269" lon="-82.0694121"/>
+    <node id="7509532269" version="1" timestamp="2020-05-12T06:13:00Z" uid="9268825" user="sushredd" changeset="85063113" lat="41.329663" lon="-82.0692398"/>
+    <node id="7509532270" version="1" timestamp="2020-05-12T06:13:00Z" uid="9268825" user="sushredd" changeset="85063113" lat="41.3296933" lon="-82.068985"/>
+    <node id="7509532271" version="1" timestamp="2020-05-12T06:13:00Z" uid="9268825" user="sushredd" changeset="85063113" lat="41.3296912" lon="-82.0688295"/>
+    <node id="7509532272" version="1" timestamp="2020-05-12T06:13:00Z" uid="9268825" user="sushredd" changeset="85063113" lat="41.3296771" lon="-82.0687222"/>
+    <node id="7509532273" version="1" timestamp="2020-05-12T06:13:00Z" uid="9268825" user="sushredd" changeset="85063113" lat="41.3296429" lon="-82.0686202"/>
+    <node id="7509532274" version="1" timestamp="2020-05-12T06:13:00Z" uid="9268825" user="sushredd" changeset="85063113" lat="41.3295603" lon="-82.0685478"/>
+    <node id="7509534273" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5170605" lon="-43.0132703"/>
+    <node id="7509534274" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5155223" lon="-43.0173151"/>
+    <node id="7509534275" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.514238" lon="-43.0220157"/>
+    <node id="7509534276" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5119154" lon="-43.0307597"/>
+    <node id="7509534277" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5072146" lon="-43.0420464"/>
+    <node id="7509534278" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5058178" lon="-43.0453402"/>
+    <node id="7509534279" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5071987" lon="-43.019652"/>
+    <node id="7509534280" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5071776" lon="-43.0195802"/>
+    <node id="7509534281" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5072265" lon="-43.0197224"/>
+    <node id="7509534282" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5072834" lon="-43.0198297"/>
+    <node id="7509534283" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5077331" lon="-43.0206504"/>
+    <node id="7509534284" version="1" timestamp="2020-05-12T06:12:37Z" uid="10074555" user="MtElgon" changeset="85063085" lat="-9.5079262" lon="-43.0209844"/>
+  </create>
+</osmChange>
