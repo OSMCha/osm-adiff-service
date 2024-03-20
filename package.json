@@ -9,7 +9,8 @@
   },
   "scripts": {
     "test": "tape test/*.js",
-    "backfill": "node ./backfill"
+    "backfill": "node ./backfill",
+    "process": "node ./cli.js"
   },
   "repository": {
     "type": "git",

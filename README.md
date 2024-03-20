@@ -112,14 +112,22 @@ Augmented Diffs contains complete representations of changes in OSM for every mi
 
 ### How to run
 
+#### JS library
+
 ```
-const run  = require('./index');
+  const run  = require('./index');
 
-// To process this file https://planet.openstreetmap.org/replication/minute/006/012/443.osc.gz,
-// the value should be 6012443
-const minuteReplication = 6012443;
+  // To process this file https://planet.openstreetmap.org/replication/minute/006/012/443.osc.gz,
+  // the value should be 6012443
+  const minuteReplication = 6012443;
 
-run(minuteReplication);
+  run(minuteReplication);
+```
+
+#### CLI
+
+```
+  yarn process 6012443
 ```
 
 ### How to fill a missing changeset
