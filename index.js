@@ -12,6 +12,8 @@ const { formatReplicationKey } = require('./util/format-replication-key');
 const { request } = require('./util/request');
 const { s3 } = require('./lib/s3-client');
 
+const REPLICATION_BUCKET = process.env.ReplicationBucket || 'osm-planet-us-west-2';
+
 process.on('unhandledRejection', (up) => { throw up; });
 process.on('exit', (code) => {
     console.log(`Exit with code: ${code}`);
@@ -20,7 +22,7 @@ process.on('exit', (code) => {
 const run = async (replicationFileId) => {
   console.time('TIME');
   const { Body } = await s3.getObject({
-    Bucket: 'osm-planet-us-west-2',
+    Bucket: REPLICATION_BUCKET,
     Key: formatReplicationKey(replicationFileId)
   }).promise();
   const xmlBin = await gunzip(Body);
