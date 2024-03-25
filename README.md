@@ -1,6 +1,6 @@
 # osm-adiff-service
 
-Listens to augmented diff files published to S3 by Overpass and minutely replication files from `osm-metronome`, and merges them together to create full representations of changesets. 
+Read the minutely replication files published by OpenStreetMap planet, and query changesets on Overpass to create full representations of changesets. It also posts the tag changes summary to the OSMCha API.
 
 # Real OpenStreetMap Changesets
 
@@ -151,7 +151,8 @@ This library requires setting some environment variables, and the AWS credential
 
 Environment Variable | Default value | Purpose
 ---|---|---
-OsmchaAdminToken |  null | Enable posting the changeset Tag Changes to OSMCha
-OutputBucket | real-changesets | S3 Bucket that will store the real-changesets files
-OverpassPrimaryUrl | https://overpass.osmcha.org | Main overpass server
-OverpassSecondaryUrl | https://overpass-api.de | Fallback overpass server
+ReplicationBucket |  osm-planet-us-west-2 | S3 Bucket where the minute replication files are published.
+OsmchaAdminToken |  null | OSMCha admin user token. It will enable posting the changeset Tag Changes to OSMCha.
+OutputBucket | real-changesets | S3 Bucket that will store the real-changesets files.
+OverpassPrimaryUrl | https://overpass.osmcha.org | Main overpass server.
+OverpassSecondaryUrl | https://overpass-api.de | Fallback overpass server.
