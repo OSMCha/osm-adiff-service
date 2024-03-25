@@ -1,30 +1,28 @@
 {
   "name": "osm-adiff-service",
-  "version": "1.2.0",
-  "description": "Read adiff files from s3 and build complete changeset representations",
+  "version": "1.0.0",
+  "description": "Process OSM minute replication files and build complete changeset representations",
   "main": "index.js",
   "engines": {
     "npm": ">=6.14.15",
     "node": ">=14.18.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "backfill": "node ./backfill"
+    "test": "tape test/*.js",
+    "backfill": "node ./backfill",
+    "process": "node ./cli.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/OSMCha/osm-adiff-service"
   },
-  "author": "Mapbox",
+  "author": "Mapbox / Development Seed",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/OSMCha/osm-adiff-service/issues"
   },
   "homepage": "https://github.com/OSMCha/osm-adiff-service",
   "dependencies": {
-    "@mapbox/cloudfriend": "^4.0.0",
-    "@mapbox/magic-cfn-resources": "^1.9.0",
-    "@mapbox/watchbot": "^6.1.0",
     "aws-sdk": "^2.625.0",
     "bluebird": "^3.7.2",
     "changetags": "^0.1.2",

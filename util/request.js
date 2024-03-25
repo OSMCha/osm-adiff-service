@@ -21,7 +21,7 @@ const request = async (url, method = 'GET', postData, token) => {
 
   return new Promise((resolve, reject) => {
     const req = https.request(params, res => {
-      if (res.statusCode < 200 || res.statusCode >= 300) {
+      if (res.statusCode < 200 || res.statusCode >= 303) {
         return reject(new Error(`Status Code: ${res.statusCode}`));
       }
 

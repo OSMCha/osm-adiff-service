@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="replicate_changesets.rb" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
- 
   <changeset id="46614147" created_at="2017-03-06T06:29:45Z" closed_at="2017-03-06T06:29:48Z" open="false" num_changes="70" user="kingrollo" uid="1427293" min_lat="57.31638" max_lat="57.3299014" min_lon="-5.691768" max_lon="-5.671945" comments_count="0">
     <tag k="comment" v="Plockton"/>
     <tag k="locale" v="en-GB"/>
