@@ -10,7 +10,8 @@
   "scripts": {
     "test": "tape test/*.js",
     "backfill": "node ./backfill",
-    "process": "node ./cli.js"
+    "process": "node ./process.js",
+    "update-queue": "node ./update.js"
   },
   "repository": {
     "type": "git",
@@ -29,7 +30,8 @@
     "htmlparser2": "^4.1.0",
     "lodash": "^4.17.15",
     "minimist": "^1.2.0",
-    "moment": "^2.25.3"
+    "moment": "^2.25.3",
+    "redis": "^4.6.13"
   },
   "devDependencies": {
     "eslint": "^3.19.0",

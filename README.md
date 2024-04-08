@@ -126,8 +126,16 @@ Augmented Diffs contains complete representations of changes in OSM for every mi
 
 #### CLI
 
+To process a single replication file, pass the minute replication id to the cli:
+
 ```
   yarn process 6012443
+```
+
+If you want to connect it to a Redis queue in order to have a service that process new replication files continuously, start a Redis service, configure the url in the `RedisServer` environment variable and use the update-queue command.
+
+```
+  yarn update-queue
 ```
 
 ### How to fill a missing changeset
@@ -156,3 +164,4 @@ OsmchaAdminToken |  null | OSMCha admin user token. It will enable posting the c
 OutputBucket | real-changesets | S3 Bucket that will store the real-changesets files.
 OverpassPrimaryUrl | https://overpass.osmcha.org | Main overpass server.
 OverpassSecondaryUrl | https://overpass-api.de | Fallback overpass server.
+RedisServer | null | Redis service URL, in the format `redis[s]://[[username][:password]@][host][:port][/db-number]`
