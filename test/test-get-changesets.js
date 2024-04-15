@@ -18,4 +18,5 @@ test('test get changeset processes changeset', async (assert) => {
         '85063116'
     ];
     assert.deepEqual(Object.keys(results), changesets);
+    assert.end();
 });

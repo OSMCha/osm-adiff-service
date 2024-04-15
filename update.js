@@ -1,13 +1,12 @@
 'use strict';
 
-const { getBothStates, getOverpassTimestamp } = require('./util/get-states');
+const { getPlanetTimestamp } = require('./util/get-states');
 const { getLastProcessedState, setProcessedState } = require('./util/redis-client');
 const { range } = require('./util/range');
 const run = require('./index');
 
 const process = async () => {
-  const timestamp = await getOverpassTimestamp();
-  const planetState = getBothStates(timestamp.replace('\n', '')).planet;
+  const planetState = await getPlanetTimestamp();
   
   let lastProcessedState = await getLastProcessedState();
   

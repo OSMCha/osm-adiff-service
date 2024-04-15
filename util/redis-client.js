@@ -1,8 +1,10 @@
 const { createClient } = require('redis');
 const { REDIS_SERVER } = require('../lib/constants');
 
+const REDIS_CONFIG = REDIS_SERVER ? { url: REDIS_SERVER } : null;
+
 const setProcessedState = async (value) => {
-  const client = await createClient({ url: REDIS_SERVER })
+  const client = await createClient(REDIS_CONFIG)
     .on('error', err => console.log('Redis Client Error', err))
     .connect();
   
@@ -11,7 +13,7 @@ const setProcessedState = async (value) => {
 };
 
 const getLastProcessedState = async () => {
-  const client = await createClient({ url: REDIS_SERVER })
+  const client = await createClient(REDIS_CONFIG)
     .on('error', err => console.log('Redis Client Error', err))
     .connect();
   
