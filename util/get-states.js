@@ -1,7 +1,11 @@
 'use strict';
 const moment = require('moment');
+const zlib = require('zlib');
+const util = require('util');
+const gunzip = util.promisify(zlib.gunzip);
+const { REPLICATION_BUCKET, OVERPASS_DELAY, OVERPASS_PRIMARY_URL, OVERPASS_SECONDARY_URL } = require('../lib/constants');
+const { s3 } = require('../lib/s3-client');
 const { request } = require('./request');
-const { OVERPASS_PRIMARY_URL, OVERPASS_SECONDARY_URL } = require('../lib/constants');
 
 
 const getStates = (created_at, closed_at) => {
@@ -36,18 +40,36 @@ const getOverpassTimestamp = async () => {
   }
 }
 
-// return both the OSM Planet replication file and overpass state for a given minute
-const getBothStates = (minute) => {
-  minute = moment.utc(minute);
-  const start = minute.startOf('minute');
-  const overpassState = (start.unix()/60) - 22457216;
-  const osmState = overpassState - 46836;
-  return { overpass: overpassState, planet: osmState };
-};
+const getOverpassDelay = async () => {
+  const timestamp = await getOverpassTimestamp();
+  return moment.utc().diff(new Date(timestamp.replace('\n', '')), 'minutes') + 1;
+}
+
+const getPlanetTimestamp = async () => {
+  const overpassDelay = await getOverpassDelay();
+  const { Body } = await s3.getObject({
+    Bucket: REPLICATION_BUCKET,
+    Key: 'planet/replication/minute/state.txt'
+  }).promise();
+  const state = Body.toString();
+  return parseSequenceNumber(state) - overpassDelay;
+}
+
+const parseSequenceNumber = (content) => {
+  let sequenceNumber;
+  content.split('\n').forEach(line => {
+    if (line.startsWith('sequenceNumber=')) {
+      sequenceNumber = parseInt(line.split('=')[1], 10);
+    }
+  });
+  return sequenceNumber;
+}
 
 module.exports = {
   getStates,
   getStateForMinute,
-  getBothStates,
+  getOverpassDelay,
   getOverpassTimestamp,
+  getPlanetTimestamp,
+  parseSequenceNumber,
 };

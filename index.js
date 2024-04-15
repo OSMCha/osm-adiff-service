@@ -11,8 +11,7 @@ const { postTagChanges } = require('./lib/tagChanges');
 const { formatReplicationKey } = require('./util/format-replication-key');
 const { request } = require('./util/request');
 const { s3 } = require('./lib/s3-client');
-
-const REPLICATION_BUCKET = process.env.ReplicationBucket || 'osm-planet-us-west-2';
+const { REPLICATION_BUCKET } = require('./lib/constants');
 
 process.on('unhandledRejection', (up) => { throw up; });
 process.on('exit', (code) => {
