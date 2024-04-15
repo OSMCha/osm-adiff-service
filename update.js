@@ -13,8 +13,10 @@ const process = async () => {
   if (!lastProcessedState) lastProcessedState = planetState - 2;
   const files = range(lastProcessedState, planetState + 1);
   
-  await Promise.all(files.map((i) => run(i)));
-  await setProcessedState(planetState + 1);
+  for (const f of files) {
+    await run(f);
+    await setProcessedState(f);
+  }
   console.log(`Processed from ${lastProcessedState} to ${planetState}.`)
 };
 
