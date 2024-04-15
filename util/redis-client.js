@@ -2,7 +2,7 @@ const { createClient } = require('redis');
 const { REDIS_SERVER } = require('../lib/constants');
 
 const setProcessedState = async (value) => {
-  const client = await createClient(REDIS_SERVER)
+  const client = await createClient({ url: REDIS_SERVER })
     .on('error', err => console.log('Redis Client Error', err))
     .connect();
   
