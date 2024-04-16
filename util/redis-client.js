@@ -12,6 +12,26 @@ const setProcessedState = async (value) => {
   await client.disconnect();
 };
 
+const storePendingReplications = async (value) => {
+  const client = await createClient(REDIS_CONFIG)
+    .on('error', err => console.log('Redis Client Error', err))
+    .connect();
+  
+  await client.zAdd('adiff-service:pending_replications_sorted', {value: `${value}`, score: value});
+  await client.disconnect();
+};
+
+const getReplicationToProcess = async () => {
+  const client = await createClient(REDIS_CONFIG)
+    .on('error', err => console.log('Redis Client Error', err))
+    .connect();
+  
+  const replication = await client.zPopMin('adiff-service:pending_replications_sorted');
+  await client.disconnect();
+  return Number(replication.value);
+};
+
+
 const getLastProcessedState = async () => {
   const client = await createClient(REDIS_CONFIG)
     .on('error', err => console.log('Redis Client Error', err))
@@ -24,5 +44,7 @@ const getLastProcessedState = async () => {
 
 module.exports = {
   setProcessedState,
+  storePendingReplications,
+  getReplicationToProcess,
   getLastProcessedState,
 };
