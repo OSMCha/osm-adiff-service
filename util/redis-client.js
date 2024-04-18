@@ -28,7 +28,7 @@ const getReplicationToProcess = async () => {
   
   const replication = await client.zPopMin('adiff-service:pending_replications_sorted');
   await client.disconnect();
-  return Number(replication.value);
+  return replication ? Number(replication.value) : null;
 };
 
 
