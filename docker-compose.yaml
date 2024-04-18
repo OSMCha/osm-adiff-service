@@ -1,0 +1,15 @@
+version: '3.2'
+
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+
+  shell:
+    build: .
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    command: sh -c "while true; do sleep 1000; done"

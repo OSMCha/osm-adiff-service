@@ -19,7 +19,7 @@ process.on('exit', (code) => {
 });
 
 const run = async (replicationFileId) => {
-  console.time('TIME');
+  console.time(`TIME ${replicationFileId}`);
   const { Body } = await s3.getObject({
     Bucket: REPLICATION_BUCKET,
     Key: formatReplicationKey(replicationFileId)
@@ -34,7 +34,7 @@ const run = async (replicationFileId) => {
 
   await Promise.all(changesetList.map(postTagChanges));
   console.log('Posted all changesets tagChanges to OSMCha API');
-  console.timeEnd('TIME');
+  console.timeEnd(`TIME ${replicationFileId}`);
 };
 
 module.exports = run;
