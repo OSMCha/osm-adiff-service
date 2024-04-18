@@ -22,10 +22,10 @@ const process = async () => {
   // Now check the queue and pick a file to process
   let toProcess = await getReplicationToProcess();
   while (toProcess) {
+    await setProcessedState(toProcess);
     console.log(`Processing replication file ${toProcess}`);
     await run(toProcess);
     console.log(`Finished processing replication file ${toProcess}`);
-    await setProcessedState(toProcess);
     toProcess = await getReplicationToProcess();
   }
 };
