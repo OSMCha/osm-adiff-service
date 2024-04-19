@@ -25,7 +25,6 @@
   "homepage": "https://github.com/OSMCha/osm-adiff-service",
   "dependencies": {
     "aws-sdk": "^2.625.0",
-    "bluebird": "^3.7.2",
     "changetags": "^0.1.2",
     "htmlparser2": "^4.1.0",
     "lodash": "^4.17.15",

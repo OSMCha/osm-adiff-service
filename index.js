@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 'use strict';
-global.Promise = require('bluebird');
 const zlib = require('zlib');
 const util = require('util');
 const gunzip = util.promisify(zlib.gunzip);
