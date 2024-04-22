@@ -35,7 +35,7 @@ const process = async () => {
     await storePendingReplications(f);
   }));
   
-  Array(NUM_WORKERS).fill().forEach(
+  Array(Number(NUM_WORKERS)).fill().forEach(
     async () => await processReplication()
   );
 };
