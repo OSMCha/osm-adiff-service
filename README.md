@@ -165,3 +165,4 @@ OutputBucket | real-changesets | S3 Bucket that will store the real-changesets f
 OverpassPrimaryUrl | https://overpass.osmcha.org | Main overpass server.
 OverpassSecondaryUrl | https://overpass-api.de | Fallback overpass server.
 RedisServer | null | Redis service URL, in the format `redis[s]://[[username][:password]@][host][:port][/db-number]`
+NumberOfWorkers | 5 | Number of concurrent replication files to be processed

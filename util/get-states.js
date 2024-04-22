@@ -3,7 +3,7 @@ const moment = require('moment');
 const zlib = require('zlib');
 const util = require('util');
 const gunzip = util.promisify(zlib.gunzip);
-const { REPLICATION_BUCKET, OVERPASS_DELAY, OVERPASS_PRIMARY_URL, OVERPASS_SECONDARY_URL } = require('../lib/constants');
+const { REPLICATION_BUCKET, OVERPASS_PRIMARY_URL, OVERPASS_SECONDARY_URL } = require('../lib/constants');
 const { s3 } = require('../lib/s3-client');
 const { request } = require('./request');
 
