@@ -24,9 +24,9 @@ const processReplication = async () => {
 const process = async () => {
   // check if there are any files to process and queue them
   const planetState = await getPlanetTimestamp();
-  
+
   let lastProcessedState = await getLastProcessedState();
-  
+
   if (!lastProcessedState) lastProcessedState = planetState - 2;
   const files = range(lastProcessedState, planetState + 1);
   console.log(`Queueing replication files from ${lastProcessedState} to ${planetState} to process.`);
@@ -34,10 +34,11 @@ const process = async () => {
   await Promise.all(files.map(async (f) => {
     await storePendingReplications(f);
   }));
-  
-  Array(Number(NUM_WORKERS)).fill().forEach(
-    async () => await processReplication()
-  );
+
+  await Promise.all(
+    Array(Number(NUM_WORKERS)).fill().map(
+      async () => await processReplication()
+  ));
 };
 
 process();
