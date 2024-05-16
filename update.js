@@ -4,7 +4,7 @@ const { getPlanetTimestamp } = require('./util/get-states');
 const { getLastProcessedState, setProcessedState, storePendingReplications, getReplicationToProcess } = require('./util/redis-client');
 const { range } = require('./util/range');
 const run = require('./index');
-const { NUM_WORKERS, RESTART_INTERVAL } = require('./lib/constants');
+const { NUM_WORKERS } = require('./lib/constants');
 
 // Check the queue and pick a file to process
 const processReplication = async () => {
@@ -42,12 +42,20 @@ const queueAndProcess = async () => {
   ));
 };
 
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 const process = async () => {
-  const nextRestartTime = moment.utc().add(RESTART_INTERVAL, 'minute');
-  // Kubernetes workers need at least 5 minutes of interval between restarts
-  // So we've added the option to keep the process running for a time interval
-  while (moment.utc() < nextRestartTime) {
+  let lastProcessStartTime, timeDiff;
+  while (true) {
+    lastProcessStartTime = moment.utc();
+    console.log(`-- STARTING PROCESS AT ${lastProcessStartTime.toLocaleString()}`);
     await queueAndProcess();
+    // If the process ends in less than 1 minute,
+    // make sure it will not run again in less than 60 seconds
+    timeDiff = moment.utc() - lastProcessStartTime;
+    if (timeDiff < 60000) {
+      await sleep(60000 - timeDiff);
+    }
   }
 }
 
