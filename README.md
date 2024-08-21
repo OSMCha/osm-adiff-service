@@ -1,6 +1,6 @@
 # osm-adiff-service
 
-This service reads the minutely replication files published by OpenStreetMap, and builds JSON documents which describe each changeset in detail (including information which is not included in the replication file). It publishes these JSON files to S3, and also POSTs a summary of tag changes to the OSMCha API.
+This service reads the minutely replication files published by OpenStreetMap, and builds JSON documents which describe each changeset in detail (including information which is not included in the replication file). It publishes these JSON files to S3, and also POSTs a summary of tag changes to the [OSMCha API](https://osmcha.org/api-docs/).
 
 Each changeset JSON contains complete information about the changeset:
 
@@ -10,7 +10,7 @@ Each changeset JSON contains complete information about the changeset:
 
 ## What is this, and why?
 
-OSMCha's purpose is to let users view a changeset in its entirety, including metadata about the changeset and the "before" and "after" versions of every OSM element that was changed.
+[OSMCha](https://osmcha.org)'s purpose is to let users view a changeset in its entirety, including metadata about the changeset and the "before" and "after" versions of every OSM element that was changed.
 
 The OSM API publishes minutely [replication files](https://wiki.openstreetmap.org/wiki/Planet.osm/diffs) in [`.osc` format](https://wiki.openstreetmap.org/wiki/OsmChange) that contain some information about each edit that is made to OSM, but these files are optimized for small size and don't contain all of the details required by OSMCha. Specifically:
 
@@ -18,7 +18,9 @@ The OSM API publishes minutely [replication files](https://wiki.openstreetmap.or
 - they don't include way geometries at all unless the geometry itself was edited (not just the tags)
 - they don't include bounding boxes
 
-A richer diff format called [augmented diff](https://wiki.openstreetmap.org/wiki/Overpass_API/Augmented_Diffs) addresses these limitations. [Overpass](https://wiki.openstreetmap.org/wiki/Overpass_API) is capable of producing this type of diff. The `osm-adiff-service` can be used to process a replication file from the OSM API, retrieve additional data about each change by getting an augmented diff from Overpass, and republish the resulting info as JSON. These JSON artifacts are then served by the [OSMCha backend](https://github.com/OSMCha/osmcha-django) and rendered in the browser using [changeset-map](https://github.com/osmlab/changeset-map).
+A richer diff format called [augmented diff](https://wiki.openstreetmap.org/wiki/Overpass_API/Augmented_Diffs) addresses these limitations. [Overpass](https://wiki.openstreetmap.org/wiki/Overpass_API) is capable of producing this type of diff. The `osm-adiff-service` can be used to process a replication file from the OSM API, retrieve additional data about each change by getting an augmented diff from Overpass, and republish the resulting info as JSON.
+
+These JSON artifacts are named as [real-changesets](https://github.com/osmus/osmcha-charter-project/blob/main/real-changesets-docs.md), and currently the OSMCha's data pipeline is publishing the files in an [AWS Open Data S3 Bucket](https://registry.opendata.aws/real-changesets/). The `real-changesets` are used by OSMCha to provide the visualization of changesets to users. The component used to render it on the browser is the [changeset-map](https://github.com/osmlab/changeset-map).
 
 #### Example JSON changeset output
 
