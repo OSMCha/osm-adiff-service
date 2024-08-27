@@ -32,11 +32,11 @@ const getStateForMinute = (minute) => {
 
 const getOverpassTimestamp = async () => {
   try {
-    const timestamp = await request(`${OVERPASS_PRIMARY_URL}/api/timestamp`);
+    const timestamp = await request(`${OVERPASS_PRIMARY_URL}/api/timestamp`).then(res => res.text());
     return timestamp;
   } catch (e) {
-    const overpassTimestamp = await request(`${OVERPASS_SECONDARY_URL}/api/timestamp`);
-    return overpassTimestamp;
+    const timestamp = await request(`${OVERPASS_SECONDARY_URL}/api/timestamp`).then(res => res.text());
+    return timestamp;
   }
 }
 
