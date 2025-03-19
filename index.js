@@ -31,8 +31,13 @@ const run = async (replicationFileId) => {
   await Promise.all(changesetList.map(uploadToS3));
   console.log('Uploaded all changesets to s3');
 
-  await Promise.all(changesetList.map(postTagChanges));
-  console.log('Posted all changesets tagChanges to OSMCha API');
+  if (process.env.OsmchaAdminToken) {
+    await Promise.all(changesetList.map(postTagChanges));
+    console.log('Posted all changesets tagChanges to OSMCha API');
+  } else {
+    console.log('OSMCha API Token is not configured; skipping postTagChanges step.')
+  }
+
   console.timeEnd(`TIME ${replicationFileId}`);
 };
 
