@@ -24,10 +24,10 @@
   dependencies:
     sax "^1.4.1"
 
-"@osmcha/osm-changeset-xml-parser@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@osmcha/osm-changeset-xml-parser/-/osm-changeset-xml-parser-1.0.0.tgz#c301a9cce80befce75b1992ca247b27a0d0cb887"
-  integrity sha512-j2NsEJPzZDTMMTdUNRYaYi2kNoGQadhF1DHeiiKFHwK6XQi65X9KhZXSMtOu8jOJ8oZmjyzR2xNYQdITJ841cw==
+"@osmcha/osm-changeset-xml-parser@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@osmcha/osm-changeset-xml-parser/-/osm-changeset-xml-parser-1.0.1.tgz#4a96b2ed91cd8817a3849ff5cd4e84af922e7e72"
+  integrity sha512-1PSmKXEbQcyjxQnJMDXmFAuMCFFAS0repTprE+pPl6SDbK8/FWh5rRwmY1hCYw7fl8+WwBmYtYaC4IjlStd5ow==
   dependencies:
     sax "^1.4.1"
 

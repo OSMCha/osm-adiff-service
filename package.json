@@ -25,7 +25,7 @@
   "homepage": "https://github.com/OSMCha/osm-adiff-service",
   "dependencies": {
     "@osmcha/osm-adiff-parser": "^2.0.0",
-    "@osmcha/osm-changeset-xml-parser": "^1.0.0",
+    "@osmcha/osm-changeset-xml-parser": "^1.0.1",
     "@osmcha/osmchange-parser": "^1.0.0",
     "aws-sdk": "^2.625.0",
     "changetags": "^0.1.2",
