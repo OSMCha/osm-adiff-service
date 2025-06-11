@@ -8,6 +8,9 @@ Each changeset JSON contains complete information about the changeset:
 * Elements - each feature that was added, modified, or deleted in the changeset.
 * For each element, the current and previous version including geometry and metadata.
 
+> [!WARNING]
+> **This service has been retired, and is no longer used by OSMCha.** The osmcha.org frontend now fetches augmented diffs in XML format from adiffs.osmcha.org. Those diffs are pre-computed by [osmx-adiff-builder](https://github.com/OSMCha/osmx-adiff-builder), and then uploaded to a Cloudflare R2 bucket. A [cloudflare worker](https://github.com/OSMCha/changeset-adiffs-worker) computes the tag changes summary for each new augmented diff and posts the results to the OSMCha Django API server. See [this blog post](https://openstreetmap.us/news/2025/05/osmcha's-new-upgrade/) for a detailed explanation of the new architecture.
+
 ## What is this, and why?
 
 [OSMCha](https://osmcha.org)'s purpose is to let users view a changeset in its entirety, including metadata about the changeset and the "before" and "after" versions of every OSM element that was changed.
